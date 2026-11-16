@@ -1,0 +1,5 @@
+---
+interface Props { eyebrow:string; title:string; intro:string; crumbs?:[string,string][] }
+const {eyebrow,title,intro,crumbs=[]}=Astro.props;
+---
+<section class="page-hero"><div class="shell reveal">{crumbs.length>0&&<nav class="breadcrumbs" aria-label="Breadcrumb">{crumbs.map(([label,href],i)=><>{i>0&&' / '}<a href={href}>{label}</a></>)}</nav>}<p class="eyebrow">{eyebrow}</p><h1>{title}</h1><p class="lede">{intro}</p></div></section>

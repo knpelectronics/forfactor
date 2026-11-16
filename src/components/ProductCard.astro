@@ -1,0 +1,5 @@
+---
+interface Props { number:string; name:string; description:string; href:string; status?:string; featured?:boolean }
+const {number,name,description,href,status,featured=false}=Astro.props;
+---
+<a class:list={['product-card',{featured}]} href={href}><span class="number">{number}</span>{status && <span class="status">{status}</span>}<h3>{name}</h3><p>{description}</p><span class="arrow" aria-hidden="true">↗</span></a>

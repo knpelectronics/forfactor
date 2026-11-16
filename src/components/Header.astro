@@ -1,0 +1,18 @@
+---
+const path = Astro.url.pathname;
+const links = [['/', 'Home'], ['/about/', 'About'], ['/products/', 'Products'], ['/contact/', 'Contact']];
+---
+<header class="site-header">
+  <div class="shell nav">
+    <a class="wordmark" href="/" aria-label="Forfactor home"><span class="mark" aria-hidden="true">FF</span><span>FORFACTOR</span></a>
+    <nav class="nav-links" aria-label="Primary navigation">
+      {links.map(([href,label]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
+      <button class="theme" type="button" aria-label="Toggle colour theme" data-theme-toggle>◐</button>
+    </nav>
+    <details class="mobile-nav"><summary class="button secondary" aria-label="Open navigation">Menu</summary><nav class="mobile-menu" aria-label="Mobile navigation">{links.map(([href,label]) => <a href={href}>{label}</a>)}<button class="theme" type="button" aria-label="Toggle colour theme" data-theme-toggle>◐</button></nav></details>
+  </div>
+</header>
+<script is:inline>
+  const root=document.documentElement;const saved=localStorage.getItem('forfactor-theme');if(saved)root.dataset.theme=saved;
+  document.querySelectorAll('[data-theme-toggle]').forEach(b=>b.addEventListener('click',()=>{const next=root.dataset.theme==='dark'?'light':'dark';root.dataset.theme=next;localStorage.setItem('forfactor-theme',next)}));
+</script>
