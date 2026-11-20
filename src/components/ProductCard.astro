@@ -1,10 +1,15 @@
 ---
 interface Props { number:string; name:string; description:string; href:string; status?:string; featured?:boolean }
 const {number,name,description,href,status,featured=false}=Astro.props;
+const officialLogos: Record<string,string> = {
+  Keenout: 'https://www.keenout.com.au/brand/keenout-logo-master.png',
+  Pronovo: 'https://www.pronovo.org/app-icon-512.png'
+};
+const logo = officialLogos[name];
 ---
 <a class:list={['product-card',`product-${name.toLowerCase()}`,{featured}]} href={href}>
   <div class="product-top"><span class="number">{number}</span>{status && <span class="status">{status}</span>}</div>
-  <div class="product-symbol" aria-hidden="true"><span>{name.charAt(0)}</span><i></i></div>
+  <div class="product-symbol" aria-hidden="true">{logo ? <img class="product-logo" src={logo} alt="" width="160" height="160" loading="lazy" decoding="async"/> : <span class="heela-wordmark">HEELA</span>}</div>
   <div class="product-copy"><h3>{name}</h3><p>{description}</p></div>
   <span class="card-link">Explore product <span class="arrow" aria-hidden="true">↗</span></span>
 </a>

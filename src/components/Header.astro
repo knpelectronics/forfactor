@@ -4,7 +4,7 @@ const links = [['/', 'Home'], ['/about/', 'About'], ['/products/', 'Products'], 
 ---
 <header class="site-header">
   <div class="shell nav">
-    <a class="wordmark" href="/" aria-label="Forfactor home"><span class="mark" aria-hidden="true"><i></i><i></i><i></i></span><span>Forfactor</span></a>
+    <a class="wordmark forfactor-wordmark" href="/" aria-label="Forfactor home"><span>FOR</span><span>FACTOR</span></a>
     <nav class="nav-links" aria-label="Primary navigation">
       {links.map(([href,label]) => <a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a>)}
       <button class="theme" type="button" aria-label="Toggle colour theme" data-theme-toggle><span aria-hidden="true">◐</span></button>
