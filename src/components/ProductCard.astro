@@ -6,10 +6,11 @@ const officialLogos: Record<string,string> = {
   Pronovo: 'https://www.pronovo.org/app-icon-512.png'
 };
 const logo = officialLogos[name];
+const category = number.replace(/^\d+\s*\/\s*/, '');
 ---
 <a class:list={['product-card',`product-${name.toLowerCase()}`,{featured}]} href={href}>
-  <div class="product-top"><span class="number">{number}</span>{status && <span class="status">{status}</span>}</div>
+  <div class="product-top"><span class="number">{category}</span>{status && <span class="status">{status}</span>}</div>
   <div class="product-symbol" aria-hidden="true">{logo ? <img class="product-logo" src={logo} alt="" width="160" height="160" loading="lazy" decoding="async"/> : <span class="heela-wordmark">HEELA</span>}</div>
   <div class="product-copy"><h3>{name}</h3><p>{description}</p></div>
-  <span class="card-link">Explore product <span class="arrow" aria-hidden="true">↗</span></span>
+  <span class="card-link">Explore product</span>
 </a>

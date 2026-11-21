@@ -1,0 +1,12 @@
+---
+interface Props { footer?: boolean }
+const { footer = false } = Astro.props;
+---
+<span class:list={['brand-lockup', { 'brand-lockup-footer': footer }]}>
+  <svg class="brand-mark" viewBox="0 0 46 46" aria-hidden="true">
+    <rect width="46" height="46" rx="13" fill="currentColor"/>
+    <path d="M10 9h16v6H17v5h8v6h-8v11h-7V9Z" fill="var(--brand-mark-light, #f7f8f3)"/>
+    <path d="M23 20h13v6h-6v11h-7V20Z" fill="var(--brand-mark-pop, #b8f34a)"/>
+  </svg>
+  <span class="brand-type"><b>FOR</b><b>FACTOR</b></span>
+</span>
